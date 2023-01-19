@@ -1,9 +1,9 @@
 @echo off
 if "%3X"=="debugX" (
-    @echo building debug version
+    @echo building debug version %2
     @browserify %1 -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] --plugins [ @babel/plugin-proposal-class-properties ] ]  > %2
 ) else (
-    @echo building production version
+    @echo building production version %2
     @browserify %1 -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] --plugins [ @babel/plugin-proposal-class-properties ] ] -g [ envify --NODE_ENV production ] -g uglifyify   | uglifyjs --compress --mangle > %2
 )
 
