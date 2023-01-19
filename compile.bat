@@ -1,4 +1,7 @@
 @echo off
+
+set PATH=..\node_modules\.bin;%PATH%
+
 if "%3X"=="debugX" (
     @echo building debug version
     @browserify %1 -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] --plugins [ @babel/plugin-proposal-class-properties ] ]  > %2
